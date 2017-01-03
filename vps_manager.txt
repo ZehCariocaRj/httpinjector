@@ -59,7 +59,7 @@ nano /etc/ssh/sshd_config
 [ FIREWALL ]
 nano /etc/rc.local
 
-echo "1" > /proc/sys/net/ipv4/ip_forward 
+echo "1" > /proc/sys/net/ipv4/ip_forward <= colocar soh isso no rc.local
 Isso aqui abaixo libera todas as portas do VPS
 iptables -F
 iptables -X
