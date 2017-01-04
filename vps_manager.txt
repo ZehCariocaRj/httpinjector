@@ -5,7 +5,7 @@
 
 [Atualização da VPS]
 
-dpkg-reconfigure tzdata
+dpkg-reconfigure tzdata Reconfigura o relogio
 
 apt-get update && apt-get upgrade && apt-get install squid3 && apt-get install wget && apt-get install nano && apt-get install screen && apt-get install dos2unix
 
