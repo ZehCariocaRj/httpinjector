@@ -5,7 +5,7 @@
 
 [Atualização da VPS]
 
-dpkg-reconfigure tzdata Reconfigura o relogio
+dpkg-reconfigure tzdata
 
 apt-get update && apt-get upgrade && apt-get install squid3 && apt-get install wget && apt-get install nano && apt-get install screen && apt-get install dos2unix
 
@@ -47,25 +47,6 @@ chmod +x ExpCleaner.sh
 [ Configurações ]
 
 nano /etc/squid3/squid.conf
-colocar o seguinte no squid.conf
-acl url1 dstdomain -i 127.0.0.1  <= aqui liberar o proxy no endereço de loopback ou seja toda rede interna do servidor
-acl url2 dstdomain -i localhost <= aqui liberar o proxy no endereço de loopback soh q com o nome ou seja toda rede interna do servidor
-acl url3 dstdomain -i IP_DO_VPS  <= É preciso liberar para que os clientes acessem o proxy
-acl payload dstdomain -i "/etc/squid3/payload.txt" <= aqui é o cadastro das Payloads ou seja os dominios cadastrados das operadoras
-
-http_access allow url1
-http_access allow url2
-http_access allow url3
-http_access allow payload
-
-http_access deny all
- 
-http_port 8080
-
-visible_hostname zeh
- 
-forwarded_for off <= para fazer redir de portas colocar #
-via off <= para fazer redir de portas colocar #
 
 nano /etc/squid3/payload.txt
 
@@ -78,7 +59,7 @@ nano /etc/ssh/sshd_config
 [ FIREWALL ]
 nano /etc/rc.local
 
-echo "1" > /proc/sys/net/ipv4/ip_forward <= Esse comando escreve o número 1 dentro do arquivo ip_forward, ativando o roteamento de pacote.
+echo "1" > /proc/sys/net/ipv4/ip_forward 
 Isso aqui abaixo libera todas as portas do VPS
 iptables -F
 iptables -X
